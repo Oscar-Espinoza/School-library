@@ -33,3 +33,5 @@ Style/Documentation:
 Style/OptionalBooleanParameter:
   Exclude:
     - 'person.rb'
+  Ignore:
+    - 'Missing top-level documentation comment'
