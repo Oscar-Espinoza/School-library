@@ -7,6 +7,7 @@ class Person < Nameable
   def initialize(age, parent_permission = true, name = 'Unknown')
     raise ArgumentError, 'Age cannot be nil.' if age.nil?
 
+    super()
     @id = SecureRandom.uuid
     @name = name
     @age = age
