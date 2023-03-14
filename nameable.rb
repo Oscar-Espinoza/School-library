@@ -4,6 +4,6 @@
 # able to produce a "correct name" based on that attribute.
 class Nameable
   def correct_name
-    raise NotImplementedError, 'Subclass must implement abstract method'
+    raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
   end
 end
