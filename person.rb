@@ -2,9 +2,10 @@
 
 require 'securerandom'
 require_relative 'nameable'
+require_relative 'rental'
 
 class Person < Nameable
-  def initialize(age, parent_permission = true, name = 'Unknown')
+  def initialize(age, name = 'Unknown', parent_permission = true)
     raise ArgumentError, 'Age cannot be nil.' if age.nil?
 
     super()
@@ -12,9 +13,10 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :parent_permission
   attr_reader :id
 
   private
@@ -31,5 +33,12 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def rent_bool(date, book)
+    rental = Rental.new(date, book, self)
+    @rentals << rental
+    book.rentals << rental
+    rental
   end
 end
