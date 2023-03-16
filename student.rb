@@ -2,16 +2,22 @@
 
 require_relative 'person'
 
-# Student is a Nameable object representing a student.
-
 class Student < Person
-  def initialize(age, classroom, name = 'Unknown', _parent_permission: true)
-    super(name, age, parent_permision)
+  def initialize(age, name = 'Unknown', parent_permission: true, classroom: nil)
+    super(age, name, parent_permission)
 
     @classroom = classroom
+    classroom.students << self if @classroom
   end
+
+  attr_accessor :classroom
 
   def play_hooky
     '¯\\(ツ)/¯'
+  end
+
+  def add_classroom(classroom)
+    @classroom = classroom
+    classroom.students << self
   end
 end
