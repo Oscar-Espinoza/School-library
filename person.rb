@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 require 'securerandom'
+require_relative 'nameable'
 
-class Person
+class Person < Nameable
   def initialize(age, parent_permission = true, name = 'Unknown')
     raise ArgumentError, 'Age cannot be nil.' if age.nil?
 
+    super()
     @id = SecureRandom.uuid
     @name = name
     @age = age
@@ -25,5 +27,9 @@ class Person
 
   def can_use_services?
     is_of_age? || @parent_permission
+  end
+
+  def correct_name
+    @name
   end
 end
