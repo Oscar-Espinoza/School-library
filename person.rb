@@ -35,7 +35,7 @@ class Person < Nameable
     @name
   end
 
-  def rent_bool(date, book)
+  def rent_book(date, book)
     rental = Rental.new(date, book, self)
     @rentals << rental
     book.rentals << rental
