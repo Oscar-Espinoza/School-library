@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # main.rb
 
 require_relative 'app'
@@ -8,13 +10,13 @@ def main
 
   loop do
     puts "\nPlease choose an option by entering a number:"
-    puts "1 - List all books"
-    puts "2 - List all people"
-    puts "3 - Create a person"
-    puts "4 - Create a book"
-    puts "5 - Create a rental"
-    puts "6 - List all rentals for a given person ID"
-    puts "7 - Exit"
+    puts '1 - List all books'
+    puts '2 - List all people'
+    puts '3 - Create a person'
+    puts '4 - Create a book'
+    puts '5 - Create a rental'
+    puts '6 - List all rentals for a given person ID'
+    puts '7 - Exit'
 
     choice = gets.chomp.to_i
 
@@ -31,12 +33,12 @@ def main
         name = gets.chomp
         puts 'Enter age:'
         age = gets.chomp.to_i
-      
+
         if type == '1'
           puts 'Has parent permission? [Y/N]: '
           permission = gets.chomp
-          permission = true if permission == 'Y' || permission == 'y'
-          permission = false if permission == 'N' || permission == 'n'
+          permission = true if %w[Y y].include?(permission)
+          permission = false if %w[N n].include?(permission)
           app.create_person(type, age, name, nil, permission)
           break
         elsif type == '2'
@@ -45,9 +47,9 @@ def main
           app.create_person(type, age, name, specialization)
           break
         else
-          puts "Invalid input, please enter 1 or 2."
+          puts 'Invalid input, please enter 1 or 2.'
         end
-      end      
+      end
     when 4
       puts 'Enter book title:'
       title = gets.chomp
@@ -55,7 +57,7 @@ def main
       author = gets.chomp
       app.create_book(title, author)
     when 5
-      app.create_rental()
+      app.create_rental
     when 6
       puts 'Enter person ID:'
       person_id = gets.chomp.to_i

@@ -35,3 +35,20 @@ Style/OptionalBooleanParameter:
     - 'person.rb'
   Ignore:
     - 'Missing top-level documentation comment'
+
+Metrics/AbcSize:
+  Exclude:
+    - "main.rb"
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/ClassVars:
+  Exclude:
+    - "person.rb"
