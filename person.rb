@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
-require 'securerandom'
 require_relative 'nameable'
 require_relative 'rental'
 
 class Person < Nameable
+  @@id_counter = 1
   def initialize(age, name = 'Unknown', parent_permission = true)
     raise ArgumentError, 'Age cannot be nil.' if age.nil?
 
     super()
-    @id = SecureRandom.uuid
+    @id = @@id_counter
+    @@id_counter += 1
     @name = name
     @age = age
     @parent_permission = parent_permission
