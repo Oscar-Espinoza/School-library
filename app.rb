@@ -23,11 +23,12 @@ class App
     @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
 
-  def create_person(type, age, name, specialization, parent_permission)
+  def create_person(type, age, name, specialization, parent_permission: true)
     if type == '1'
       @people << Student.new(age, name, parent_permission: parent_permission)
     elsif type == '2'
       @people << Teacher.new(age, specialization, name)
+      puts @people[0]
     else
       puts "Invalid person type. Use 'teacher' or 'student'."
     end
@@ -76,9 +77,7 @@ class App
   def display_people_list
     puts 'Choose a person'
     @people.each_index do |i|
-      puts "#{i}) [#{@people[i].class}]
-            Name: #{@people[i].name}, ID: #{@people[i].id},
-            Age: #{@people[i].age}"
+      puts "#{i}) [#{@people[i].class}] Name: #{@people[i].name}, ID: #{@people[i].id}, Age: #{@people[i].age}"
     end
   end
 

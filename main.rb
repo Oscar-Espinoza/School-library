@@ -39,7 +39,7 @@ def main
           permission = gets.chomp
           permission = true if %w[Y y].include?(permission)
           permission = false if %w[N n].include?(permission)
-          app.create_person(type, age, name, nil, permission)
+          app.create_person(type, age, name, nil, parent_permission: permission)
           break
         elsif type == '2'
           puts 'Enter specialization:'

@@ -4,7 +4,7 @@ require_relative 'nameable'
 require_relative 'rental'
 
 class Person < Nameable
-  @@id_counter = 0
+  @@id_counter = 1
   def initialize(age, name = 'Unknown', parent_permission = true)
     raise ArgumentError, 'Age cannot be nil.' if age.nil?
 
