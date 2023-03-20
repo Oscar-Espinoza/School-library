@@ -24,9 +24,10 @@ class App
   end
 
   def create_person(type, age, name, specialization, parent_permission: true)
-    if type == '1'
+    case type
+    when '1'
       @people << Student.new(age, name, parent_permission: parent_permission)
-    elsif type == '2'
+    when '2'
       @people << Teacher.new(age, specialization, name)
       puts @people[0]
     else
