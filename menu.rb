@@ -42,46 +42,5 @@ class Menu
     end
   end
 
-  private
-
-  def create_person_menu
-    loop do
-      puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-      type = gets.chomp
-      puts 'Enter name:'
-      name = gets.chomp
-      puts 'Enter age:'
-      age = gets.chomp.to_i
-
-      if type == '1'
-        puts 'Has parent permission? [Y/N]: '
-        permission = gets.chomp
-        permission = true if %w[Y y].include?(permission)
-        permission = false if %w[N n].include?(permission)
-        @app.create_person(type, age, name, nil, parent_permission: permission)
-        break
-      elsif type == '2'
-        puts 'Enter specialization:'
-        specialization = gets.chomp
-        @app.create_person(type, age, name, specialization)
-        break
-      else
-        puts 'Invalid input, please enter 1 or 2.'
-      end
-    end
-  end
-
-  def create_book_menu
-    puts 'Enter book title:'
-    title = gets.chomp
-    puts 'Enter book author:'
-    author = gets.chomp
-    @app.create_book(title, author)
-  end
-
-  def list_rentals_menu
-    puts 'Enter person ID:'
-    person_id = gets.chomp.to_i
-    @app.list_rentals_by_person_id(person_id)
-  end
+  
 end
