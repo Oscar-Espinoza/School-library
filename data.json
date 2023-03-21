@@ -1,0 +1,25 @@
+{
+  "books": [
+    {
+      "title": "Harry Potter",
+      "author": "JK Rowling"
+    }
+  ],
+  "people": [
+    {
+      "type": "Student",
+      "age": 12,
+      "name": "joel",
+      "parent_permission": true
+    },
+    {
+      "type": "Teacher",
+      "age": 34,
+      "name": "Snape",
+      "specialization": "Dark Magic"
+    }
+  ],
+  "rentals": [
+
+  ]
+}
