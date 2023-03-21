@@ -52,10 +52,11 @@ class Menu
   def create_person_menu
     loop do
       type, name, age = create_person_display
-      if type == '1'
+      case type
+      when '1'
         create_person_with_parent_permission(type, name, age)
         break
-      elsif type == '2'
+      when '2'
         create_person_with_specialization(type, name, age)
         break
       else
