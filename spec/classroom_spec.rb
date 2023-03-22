@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/classroom_spec.rb
 
 require 'rspec'

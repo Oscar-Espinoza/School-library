@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/book_spec.rb
 
 require 'rspec'
